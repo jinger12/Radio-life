@@ -53,7 +53,10 @@ Using Gradient Boosting combined with SHAP for feature importance analysis makes
 Then data engineer was used to rebuild a dataset from the original dataset which included the selected columns from SHAP. Because all numbers have three counter parts, we need to ensure that all are brought in because that will be the actual data we will receive from the device. 
 
 To visualize the relationship between temperature, magnitude, and phase across different diagnostic categories within our dataset, we generated a three-dimensional scatter plot. This dataset comprised multiple measurements of temperature, magnitude, and phase, each associated with a specific diagnostic value. The following steps were taken to prepare the data and create the visualization:
- 
+
+
+![3D Scatter Plot of Data](src/3D_reduced_plot.png)
+
 At this point, we needed to retrain the model for the smaller dataset as this will be the dataset pull from the machine. We ran a hyperparameter grid search again and then fitted the model.
 
 We again used cross validation to check on how the model was generalizing. Again we find that there is a good chance the model is overfitting. 
