@@ -1,14 +1,14 @@
 # Cubescan with temperature
 
-<img src="src/cubescan_front-2.png" alt="cubescan" width="200"/>
+<img figs="figs/cubescan_front-2.png" alt="cubescan" width="200"/>
 
 Cubescan is a novel deviced make by Radiolife. Cubescan leverages RF technology and AI to advance pathologies research, revolutionizing disease understanding and patient care.
 
-Bellow is part of my contribution to this project. See the src folder for the code. The data was listed on the .gitignore. 
+Bellow is part of my contribution to this project. See the figs folder for the code. The data was listed on the .gitignore. 
 
 After experimenting with a few different models we decided on the Gradient Boosting Regressor. This is inline with previous models built for classification that used random forests and decision trees when classifying Cubescan data. Previous testing preformed looked at classifying test tubes which either contained saline or water. For this test, we aimed to determine the percent concentration. We employed a Gradient Boosting Regressor, a machine learning algorithm known for its robustness and effectiveness in handling various types of data. We used a grid search to identify the optimal parameters and hyperparameters for our predictive model. Gradient Boosting works by building an ensemble of weak prediction models, typically decision trees, to form a strong predictive model.
 
-![Full set 3D data](src/3D_full_data.png)
+![Full set 3D data](figs/3D_full_data.png)
 
 A test tube is placed in the Cubescan and a series of radio frequency signals are emited. The data consists of magnitude and phase readings for 1000 frequencies along with tempature readings for every sample tested, along with the target attribute and device serial number. 
 
@@ -40,7 +40,7 @@ In summary, the interpretation of these scores would lead to the conclusion that
 
 When tested on the actual test set, the model did seem to perform a bit better than the scores from the cross validation suggested. 
 
-![Full set results visualization](src/actual_vs_predicted.png)
+![Full set results visualization](figs/actual_vs_predicted.png)
 
 **Reducing the dimensionality of the data for multiple reasons:**
 In our study, we implemented dimensionality reduction as a crucial step in our data processing pipeline. This decision was driven by multiple factors, primarily focusing on enhancing model performance and addressing concerns of overfitting.
@@ -64,14 +64,14 @@ By focusing on these top features, we can gain insights into the driving factors
 **Rationale:**
 Using Gradient Boosting combined with SHAP for feature importance analysis makes sense for a robust predictive model that not only aims for high accuracy but also provides clarity on how different features influence the outcome. This dual approach ensures that the model is not just a 'black box' but a tool for gaining deeper insights into the underlying data patterns.
 
-![SHAP Top 20 Features](src/shap_viz.png)
+![SHAP Top 20 Features](figs/shap_viz.png)
 
 Then data engineer was used to rebuild a dataset from the original dataset which included the selected columns from SHAP. Because all numbers have three counter parts, we need to ensure that all are brought in because that will be the actual data we will receive from the device. 
 
 To visualize the relationship between temperature, magnitude, and phase across different diagnostic categories within our dataset, we generated a three-dimensional scatter plot. This dataset comprised multiple measurements of temperature, magnitude, and phase, each associated with a specific diagnostic value. The following steps were taken to prepare the data and create the visualization:
 
 
-![3D Scatter Plot of Data](src/3D_reduced_plot.png)
+![3D Scatter Plot of Data](figs/3D_reduced_plot.png)
 
 At this point, we needed to retrain the model for the smaller dataset as this will be the dataset pull from the machine. We ran a hyperparameter grid search again and then fitted the model.
 
@@ -87,7 +87,7 @@ When we tested the model on the test set we saw what appears to be good results.
 
 **R-squared:** 0.9977604442204764
  
-![Reduced set results visualization](src/actual_vs_predicted_reduced.png)
+![Reduced set results visualization](figs/actual_vs_predicted_reduced.png)
 
 
 Overall the client, Radiolife, was happy with these results. 
