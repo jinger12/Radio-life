@@ -27,7 +27,7 @@ In summary, the interpretation of these scores would lead to the conclusion that
 
 When tested on the actual test set, the model did seem to perform a bit better than the scores from the cross validation suggested. 
 
-
+![Full set results visualization](src/actual_vs_predicted.png)
 **Reducing the dimensionality of the data for multiple reasons:**
 In our study, we implemented dimensionality reduction as a crucial step in our data processing pipeline. This decision was driven by multiple factors, primarily focusing on enhancing model performance and addressing concerns of overfitting.
 
