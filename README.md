@@ -1,6 +1,6 @@
 # Cubescan with temperature
 
-<img figs="figs/cubescan_front-2.png" alt="cubescan" width="200"/>
+<img src="figs/cubescan_front-2.png" alt="cubescan" width="200"/>
 
 Cubescan is a novel deviced make by Radiolife. Cubescan leverages RF technology and AI to advance pathologies research, revolutionizing disease understanding and patient care.
 
