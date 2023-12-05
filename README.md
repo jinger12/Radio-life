@@ -8,6 +8,7 @@ Using a grid search with our scaled training data, the best hyperparameters were
 
 This model had
 **Mean Squared Error:** 5.5230984030978405
+
 **R-squared:** 0.997169863301942
 
 Mean Squared Error (MSE): Measures the average of the squares of the errors, i.e., the average squared difference between the estimated values and the actual value. A lower MSE value indicates a better fit.
@@ -28,6 +29,7 @@ In summary, the interpretation of these scores would lead to the conclusion that
 When tested on the actual test set, the model did seem to perform a bit better than the scores from the cross validation suggested. 
 
 ![Full set results visualization](src/actual_vs_predicted.png)
+
 **Reducing the dimensionality of the data for multiple reasons:**
 In our study, we implemented dimensionality reduction as a crucial step in our data processing pipeline. This decision was driven by multiple factors, primarily focusing on enhancing model performance and addressing concerns of overfitting.
 
@@ -68,10 +70,10 @@ To address this it would make sure to reach a sufficient level of diversity of t
 When we tested the model on the test set we saw what appears to be good results.
 
 **Mean Squared Error:** 4.370561661570223
+
 **R-squared:** 0.9977604442204764
  
+![Reduced set results visualization](src/actual_vs_predicted_reduced.png)
 
 
-
-
-Device Data
+Overall the client, Radiolife, was happy with these results. 
