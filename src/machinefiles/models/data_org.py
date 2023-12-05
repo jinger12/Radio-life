@@ -21,14 +21,14 @@ mapping = {'Positiva': 100, 'midway': 50, 'Negativa': 0}
 # Apply the mapping to the 'diagnosis' column
 df1['diagnosis'] = df1['diagnosis'].map(mapping)
 
-# Filter the DataFrame
-df = df1[df1['serialNumber'] != '2C7707BD9710']
+# Filter the DataFrame and create a new copy
+df = df1[df1['serialNumber'] != '2C7707BD9710'].copy()
 
 # Convert 'diagnosis' to numeric, coercing non-numeric values to NaN
-df['diagnosis'] = pd.to_numeric(df['diagnosis'], errors='coerce')
+df.loc[:, 'diagnosis'] = pd.to_numeric(df['diagnosis'], errors='coerce')
 
 # Replace NaN values with zero
-df['diagnosis'].fillna(0, inplace=True)
+df.loc[df['diagnosis'].isnull(), 'diagnosis'] = 0
 
 # Print the filtered DataFrame
-len(df)
+print(len(df))

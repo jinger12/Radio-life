@@ -1,22 +1,21 @@
-from feature_select import selected_columns
-
 import pandas as pd
 import numpy as np
 import random
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
+from feature_select import selected_columns
 
 # Assuming you have a DataFrame named 'selected_columns' with features and the diagnosis column
 X = selected_columns.drop(['diagnosis', 'sample_id', 'serialNumber'], axis=1)
 y = selected_columns['diagnosis']
 
 # Split the data into training and test sets
-X_train, X_test, y_train,  = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create a Gradient Boosting regression model
-model = GradientBoostingRegressor(n_estimators=100, random_state=42)  # Set the number of estimators as desired
+# Create a Random Forest regression model
+model = RandomForestRegressor(n_estimators=100, random_state=42)  # Set the number of estimators as desired
 
 # Train the model
 model.fit(X_train, y_train)
@@ -43,13 +42,10 @@ for _ in range(len(X_test)):
     random_numbers.append(random_number)
 
     # Choose a specific input data point to observe the response
-    input_data = X_test.iloc[random_number]
-
-    # Reshape the input data to match the model's input shape
-    input_data = np.array([input_data])
+    input_data = X_test.iloc[random_number]  # Select the desired input data point
 
     # Make a prediction for the chosen input data point
-    predicted_output = model.predict(input_data)
+    predicted_output = model.predict([input_data])
 
     # Retrieve the corresponding actual output
     actual_output = y_test.iloc[random_number]  # Select the actual output for the chosen input data point
