@@ -1,5 +1,11 @@
 # Cubescan with temperature
 
+Cubescan is a novel deviced make by Radiolife. Cubescan leverages RF technology and AI to advance pathologies research, revolutionizing disease understanding and patient care.
+
+Bellow is part of my contribution to this project.
+
+![Full set results visualization](src/cubescan_front-2.png)
+
 As part of our data preparation process, we performed a series of transformations on the dataset to facilitate subsequent analysis. The dataset, originally in CSV format, contains a wide range of measurements categorized into magnitude, phase, and temperature readings, alongside diagnostic categories. We began by importing the dataset using Pandas, a powerful data manipulation library in Python. The dataset from Cubescan, was loaded into a DataFrame in Python. DataFrames are tabular data structures with labeled axes, which Pandas utilizes for data manipulation tasks. After some minor cleaning and preprocessing steps to standardize the dataset, enabling a more streamlined and effective analysis in the subsequent stages of our study.
 
 After experimenting with a few different models we decided on the Gradient Boosting Regressor. This is inline with previous models built for classification that used random forests and decision trees when classifying Cubescan data. To identify the optimal hyperparameters for our predictive model, we employed a Gradient Boosting Regressor, a machine learning algorithm known for its robustness and effectiveness in handling various types of data. Gradient Boosting works by building an ensemble of weak prediction models, typically decision trees, to form a strong predictive model.
