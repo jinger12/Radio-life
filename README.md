@@ -90,4 +90,4 @@ When we tested the model on the test set we saw what appears to be good results.
 ![Reduced set results visualization](figs/actual_vs_predicted_reduced.png)
 
 
-Overall the client, Radiolife, was happy with these results. 
+Overall the client, Radiolife, was happy with these results. In the SRC folder there is a folder called 'machinefiles'. This contains python files which train and tune the model and then create a C++ file for the Cubescan device. 
